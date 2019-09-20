@@ -1,5 +1,6 @@
 ﻿using Abp;
 using Abp.Application.Navigation;
+using Abp.Authorization;
 using Abp.Localization;
 using Abp.Xml.Extensions;
 using JK.IO;
@@ -11,7 +12,7 @@ using System.Xml;
 
 namespace JK.Web.Startup
 {
-    
+
     /// <summary>
     /// This class defines menus for the application.
     /// </summary>
@@ -118,7 +119,8 @@ namespace JK.Web.Startup
             menuItemDefinition.IsEnabled = string.IsNullOrEmpty(isEnabledStr) || bool.Parse(isEnabledStr);
             var isVisibleStr = xmlNode.GetAttributeValueOrNull("isVisible");
             menuItemDefinition.IsVisible = string.IsNullOrEmpty(isVisibleStr) || bool.Parse(isVisibleStr);
-            menuItemDefinition.RequiredPermissionName = xmlNode.GetAttributeValueOrNull("requiredPermissionName");
+            menuItemDefinition.PermissionDependency = new SimplePermissionDependency(xmlNode.GetAttributeValueOrNull("requiredPermissionName"));
+            //menuItemDefinition.RequiredPermissionName = xmlNode.GetAttributeValueOrNull("requiredPermissionName");
 
             var requiresAuthenticationStr = xmlNode.GetAttributeValueOrNull("requiresAuthentication");
             if (!string.IsNullOrEmpty(requiresAuthenticationStr))
