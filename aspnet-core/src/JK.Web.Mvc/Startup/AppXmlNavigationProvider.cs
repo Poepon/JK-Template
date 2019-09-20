@@ -119,8 +119,8 @@ namespace JK.Web.Startup
             menuItemDefinition.IsEnabled = string.IsNullOrEmpty(isEnabledStr) || bool.Parse(isEnabledStr);
             var isVisibleStr = xmlNode.GetAttributeValueOrNull("isVisible");
             menuItemDefinition.IsVisible = string.IsNullOrEmpty(isVisibleStr) || bool.Parse(isVisibleStr);
-            menuItemDefinition.PermissionDependency = new SimplePermissionDependency(xmlNode.GetAttributeValueOrNull("requiredPermissionName"));
-            //menuItemDefinition.RequiredPermissionName = xmlNode.GetAttributeValueOrNull("requiredPermissionName");
+            //menuItemDefinition.PermissionDependency = new SimplePermissionDependency(xmlNode.GetAttributeValueOrNull("requiredPermissionName"));
+            menuItemDefinition.RequiredPermissionName = xmlNode.GetAttributeValueOrNull("requiredPermissionName");
 
             var requiresAuthenticationStr = xmlNode.GetAttributeValueOrNull("requiresAuthentication");
             if (!string.IsNullOrEmpty(requiresAuthenticationStr))
