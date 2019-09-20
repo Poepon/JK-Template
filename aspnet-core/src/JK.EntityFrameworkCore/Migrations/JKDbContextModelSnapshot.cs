@@ -15,7 +15,7 @@ namespace JK.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -966,6 +966,9 @@ namespace JK.Migrations
                     b.Property<string>("EmailConfirmationCode")
                         .HasMaxLength(328);
 
+                    b.Property<string>("GoogleAuthenticatorKey")
+                        .HasMaxLength(20);
+
                     b.Property<bool>("IsActive");
 
                     b.Property<bool>("IsDeleted");
@@ -1082,6 +1085,21 @@ namespace JK.Migrations
                     b.HasIndex("TenancyName");
 
                     b.ToTable("AbpTenants");
+                });
+
+            modelBuilder.Entity("JK.Storage.BinaryObject", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<byte[]>("Bytes")
+                        .IsRequired();
+
+                    b.Property<int?>("TenantId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppBinaryObjects");
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>

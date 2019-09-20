@@ -3,7 +3,7 @@ using JK.Authorization.Users;
 
 namespace JK.Users.Dto
 {
-    public class UserMapProfile : Profile
+    public class UserMapProfile :AutoMapper.Profile
     {
         public UserMapProfile()
         {

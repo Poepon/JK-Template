@@ -10,6 +10,9 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>JK</RootNamespace>
   </PropertyGroup>
+    <ItemGroup>   
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JK.Core\JK.Core.csproj" />
   </ItemGroup>

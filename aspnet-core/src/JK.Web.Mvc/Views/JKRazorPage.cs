@@ -9,6 +9,12 @@ namespace JK.Web.Views
         [RazorInject]
         public IAbpSession AbpSession { get; set; }
 
+        public string CurrentPageName
+        {
+            set { ViewBag.CurrentPageName = value; }
+            get { return ViewBag.CurrentPageName; }
+        }
+
         protected JKRazorPage()
         {
             LocalizationSourceName = JKConsts.LocalizationSourceName;

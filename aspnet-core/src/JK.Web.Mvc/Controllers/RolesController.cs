@@ -36,7 +36,7 @@ namespace JK.Web.Controllers
         public async Task<ActionResult> EditRoleModal(int roleId)
         {
             var output = await _roleAppService.GetRoleForEdit(new EntityDto(roleId));
-            var model = new EditRoleModalViewModel(output);
+            var model = new EditRoleModalViewModel(output,ObjectMapper);
 
             return View("_EditRoleModal", model);
         }

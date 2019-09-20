@@ -6,7 +6,7 @@ using JK.Authorization.Roles;
 
 namespace JK.Roles.Dto
 {
-    public class RoleMapProfile : Profile
+    public class RoleMapProfile : AutoMapper.Profile
     {
         public RoleMapProfile()
         {
